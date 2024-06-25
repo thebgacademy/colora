@@ -1,5 +1,7 @@
 # De novo assembly with Colora
 
+#BGA24/sessions #pipeline #Snakemake #assembly #GitPod
+
 This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgacademy.org)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/thebgacademy/colora) 
