@@ -1,56 +1,57 @@
 image: gitpod/workspace-full-vnc
 
-- name: SETUP - GITHUB
-  init: |
-    git clone https://github.com/LiaOb21/colora.git
-    cd colora
-
-- name: SETUP - DOWNLOAD OatkTB
-  init: |
-    git clone https://github.com/c-zhou/OatkDB.git
-    mv OatkDB/test_data ./oatk_data
-
-- name: SETUP - DOWNLOAD BUSCO
-  init: |
-    mkdir busco_db
-    cd busco_db
-    wget https://busco-data.ezlab.org/v5/data/lineages/saccharomycetes_odb10.2024-01-08.tar.gz
-    tar -xzf saccharomycetes_odb10.2024-01-08.tar.gz
-    cd ..
-
-- name: SETUP - MAMBA ENVIRONMENT
-  init: |
-    cd /workspace
-    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
-
-    /workspace/mambaforge/bin/mamba init bash
-    source ${HOME}/.bashrc
-    mamba create -n ncbi_fcsgx ncbi-fcs-gx
-    mamba create -c conda-forge -c bioconda -n snakemake snakemake
-    gp sync-done bundle
-
-- name: SETUP - Download FCS-GX test database
-  init: gp sync-await bundle
-  command: |
-    /workspace/mambaforge/bin/mamba init bash
-    mamba activate ncbi_fcsgx
-    mkdir gx_test_db
-    cd gx_test_db
-    sync_files.py get --mft https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/FCS/database/test-only/test-only.manifest --dir ./test-only
-    mamba deactivate
-
-- name: MAIN - TERMINAL TO USE
-  init: gp sync-await bundle # Wait for previous 'inits' to complete
-    command: |
+  tasks:
+  - name: SETUP - GITHUB
+    init: |
+      git clone https://github.com/LiaOb21/colora.git
+      cd colora
+  
+  - name: SETUP - DOWNLOAD OatkTB
+    init: |
+      git clone https://github.com/c-zhou/OatkDB.git
+      mv OatkDB/test_data ./oatk_data
+  
+  - name: SETUP - DOWNLOAD BUSCO
+    init: |
+      mkdir busco_db
+      cd busco_db
+      wget https://busco-data.ezlab.org/v5/data/lineages/saccharomycetes_odb10.2024-01-08.tar.gz
+      tar -xzf saccharomycetes_odb10.2024-01-08.tar.gz
+      cd ..
+  
+  - name: SETUP - MAMBA ENVIRONMENT
+    init: |
       cd /workspace
+      wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+      bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
+  
       /workspace/mambaforge/bin/mamba init bash
       source ${HOME}/.bashrc
-      mamba activate snakemake
-      export PATH=/workspace:$PATH
-      gp preview https://www.thebgacademy.org/BGA24/sessions/colora
-      clear
-      echo 'Welcome to the Colora Session'
+      mamba create -n ncbi_fcsgx ncbi-fcs-gx
+      mamba create -c conda-forge -c bioconda -n snakemake snakemake
+      gp sync-done bundle
+  
+  - name: SETUP - Download FCS-GX test database
+    init: gp sync-await bundle
+    command: |
+      /workspace/mambaforge/bin/mamba init bash
+      mamba activate ncbi_fcsgx
+      mkdir gx_test_db
+      cd gx_test_db
+      sync_files.py get --mft https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/FCS/database/test-only/test-only.manifest --dir ./test-only
+      mamba deactivate
+  
+  - name: MAIN - TERMINAL TO USE
+    init: gp sync-await bundle # Wait for previous 'inits' to complete
+      command: |
+        cd /workspace
+        /workspace/mambaforge/bin/mamba init bash
+        source ${HOME}/.bashrc
+        mamba activate snakemake
+        export PATH=/workspace:$PATH
+        gp preview https://www.thebgacademy.org/BGA24/sessions/colora
+        clear
+        echo 'Welcome to the Colora Session'
 
 ports:
   - port: 5900
