@@ -20,7 +20,6 @@ tasks:
     cd ..
 
 - name: SETUP - MAMBA ENVIRONMENT
-  init: gp sync-await bundle
   command: |
     cd /workspace
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
@@ -32,19 +31,15 @@ tasks:
     mamba create -c conda-forge -c bioconda -n snakemake snakemake -y
     gp sync-done bundle
 
-- name: SETUP - Download FCS-GX test database
-  init: gp sync-await bundle
-  command: |
+- name: MAIN - TERMINAL TO USE
+  init: |
+    gp sync-await bundle
     /workspace/mambaforge/bin/mamba init bash
     mamba activate ncbi_fcsgx
     mkdir gx_test_db
     cd gx_test_db
     sync_files.py get --mft https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/FCS/database/test-only/test-only.manifest --dir ./test-only
     mamba deactivate
-    gp sync-done bundle
-
-- name: MAIN - TERMINAL TO USE
-  init: gp sync-await bundle # Wait for previous 'inits' to complete
   command: |
     cd /workspace
     /workspace/mambaforge/bin/mamba init bash
