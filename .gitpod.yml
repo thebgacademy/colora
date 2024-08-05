@@ -3,7 +3,7 @@ image: gitpod/workspace-full-vnc
 tasks:
 - name: SETUP - GITHUB
   init: |
-    git clone https://github.com/LiaOb21/colora.git
+    git clone https://github.com/LiaOb21/colora.git colora-pipeline
     cd colora
 
 - name: SETUP - DOWNLOAD OatkTB
