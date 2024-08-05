@@ -43,15 +43,15 @@ tasks:
 
 - name: MAIN - TERMINAL TO USE
   init: gp sync-await bundle # Wait for previous 'inits' to complete
-    command: |
-      cd /workspace
-      /workspace/mambaforge/bin/mamba init bash
-      source ${HOME}/.bashrc
-      mamba activate snakemake
-      export PATH=/workspace:$PATH
-      gp preview https://www.thebgacademy.org/BGA24/sessions/colora
-      clear
-      echo 'Welcome to the Colora Session'
+  command: |
+    cd /workspace
+    /workspace/mambaforge/bin/mamba init bash
+    source ${HOME}/.bashrc
+    mamba activate snakemake
+    export PATH=/workspace:$PATH
+    gp preview https://www.thebgacademy.org/BGA24/sessions/colora
+    clear
+    echo 'Welcome to the Colora Session'
 
 ports:
   - port: 5900
