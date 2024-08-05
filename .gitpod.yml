@@ -20,7 +20,8 @@ tasks:
     cd ..
 
 - name: SETUP - MAMBA ENVIRONMENT
-  init: |
+  init: gp sync-await bundle
+  command: |
     cd /workspace
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
@@ -32,7 +33,8 @@ tasks:
     gp sync-done bundle
 
 - name: SETUP - Download FCS-GX test database
-  init: |
+  init: gp sync-await bundle
+  command: |
     /workspace/mambaforge/bin/mamba init bash
     mamba activate ncbi_fcsgx
     mkdir gx_test_db
