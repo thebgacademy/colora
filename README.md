@@ -10,7 +10,7 @@ This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgac
 
 University of Sassari (Sardinia, Italy)
 
-- Lia Obinu, PhD
+- Lia Obinu, PhD Student
 
 ## Description
 
