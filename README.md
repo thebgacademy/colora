@@ -10,7 +10,7 @@ This session is part of [**Biodiversity Genomics Academy 2024**](https://thebgac
 
 University of Sassari (Sardinia, Italy)
 
-- Lia Obinu, PhD Student
+- [Lia Obinu, PhD Student](https://www.linkedin.com/in/lia-obinu/)
 
 ## Description
 
@@ -28,6 +28,12 @@ De novo assembly is widely used in biodiversity studies, but understanding all t
     Please also read the description carefully to see if this session is relevant to you.
     
     If you don't meet the prerequisites or change your mind based on the description or are no longer available at the session time, please email damon at thebgacademy.org to cancel your slot so that someone else on the waitlist might attend.
+
+## Useful links
+
+- [Colora GitHub repo](https://github.com/LiaOb21/colora)
+- [Examples of workflows](https://github.com/LiaOb21/colora/wiki/Tutorials)
+- [Preprint](https://www.biorxiv.org/content/10.1101/2024.09.10.612003v1)
 
 ## Colora tutorial on GitPod :snake:
 
