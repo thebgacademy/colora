@@ -34,6 +34,7 @@ De novo assembly is widely used in biodiversity studies, but understanding all t
 - [Colora GitHub repo](https://github.com/LiaOb21/colora)
 - [Examples of workflows](https://github.com/LiaOb21/colora/wiki/Tutorials)
 - [Preprint](https://www.biorxiv.org/content/10.1101/2024.09.10.612003v1)
+- [Presentation](https://www.canva.com/design/DAGPH2pFcsI/b1NqMIkotTTSeaTZIklk3Q/view?utm_content=DAGPH2pFcsI&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ## Colora tutorial on GitPod :snake:
 
