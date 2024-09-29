@@ -92,6 +92,7 @@ This input is necessary to run [`oatk`](https://github.com/c-zhou/oatk?tab=readm
 
 
 ```
+cd /workspace/colora-pipeline/test_data/
 mkdir oatkDB
 cd oatkDB
 
