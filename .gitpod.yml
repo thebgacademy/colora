@@ -28,8 +28,7 @@ tasks:
     /workspace/mambaforge/bin/mamba init bash
     source ${HOME}/.bashrc
     mamba create -n ncbi_fcsgx bioconda::ncbi-fcs-gx -y
-    mamba create -c conda-forge -c bioconda -n snakemake snakemake -y
-    gp sync-done bundle
+    mamba create -n snakemake -c conda-forge -c bioconda snakemake -y
 
     mamba activate ncbi_fcsgx
     mkdir gx_test_db
