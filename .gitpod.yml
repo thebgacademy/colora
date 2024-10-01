@@ -45,7 +45,7 @@ tasks:
     source ${HOME}/.bashrc
     mamba activate snakemake
     export PATH=/workspace:$PATH
-    gp preview https://www.thebgacademy.org/BGA24/sessions/colora
+    gp preview https://www.thebgacademy.org/BGA24/sessions/colora-24
     clear
     echo 'Welcome to the Colora Session'
 
